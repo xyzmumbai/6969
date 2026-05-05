@@ -15,6 +15,8 @@ To get started with this project, clone the repository and follow the setup inst
 ```bash
 git clone https://github.com/xyzmumbai/6969.git
 cd 6969
+xyzmumbai
+6969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
 ```
 
 ## Usage
