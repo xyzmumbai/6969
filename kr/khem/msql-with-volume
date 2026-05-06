@@ -1,0 +1,50 @@
+ubu@lubu-virtualbox:~/khem$ docker volume ls
+DRIVER    VOLUME NAME
+local     63a6b180ead83aec55d2ab4ff4fb74e933d09f2d3b1606f2e45fba6d5ac58e16
+local     78af7588fe8b06f319e135bdb0c4066e56c8596f661774e6f308f0331511a00f
+local     minikube
+local     mysql-compose_mysql_data
+lubu@lubu-virtualbox:~/khem$ docker volume create mine
+mine
+lubu@lubu-virtualbox:~/khem$ docker run -d --name mysql-db -v mine -e MYSQL_ROOT_PASSWORD=root mysql
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+53faec57e673: Pull complete 
+edf85873f64e: Pull complete 
+8fa99ae45fef: Pull complete 
+2289aa81323e: Pull complete 
+bfad527af331: Pull complete 
+e070bfedbe5c: Pull complete 
+98aef952816f: Pull complete 
+9e1e11de502d: Pull complete 
+18084fb5d973: Pull complete 
+6c2253d147ea: Pull complete 
+3769042852bc: Download complete 
+88f318259e72: Download complete 
+Digest: sha256:f0ef1d92fa650fcfa5b85f1d82bb1a56a6dd579bf256b8f8f2a5a0b1b61c8b0b
+Status: Downloaded newer image for mysql:latest
+088465b4e68e94b0aa2d124db4aa5a792773fb570d80144dac2793bf881cde17
+lubu@lubu-virtualbox:~/khem$ docker exec -it mysql-db mysql -uroot
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+lubu@lubu-virtualbox:~/khem$ docker exec -it mysql-db mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 9.7.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database me;
+Query OK, 1 row affected (0.017 sec)
+
+mysql> use me
+Database changed
+mysql> exit
+Bye
+

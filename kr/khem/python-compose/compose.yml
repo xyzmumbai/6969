@@ -1,0 +1,5 @@
+version: '3.8'
+services:
+  ghoda:
+    build: .
+    container_name: python_compose-wala

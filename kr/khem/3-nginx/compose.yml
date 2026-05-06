@@ -1,0 +1,32 @@
+
+
+services:
+  nginx1:
+    image: nginx:latest
+    container_name: nginx1
+    ports:
+      - "8081:80"
+    volumes:
+      - shared-data:/usr/share/nginx/html
+    command: /bin/sh -c "echo '<h1>Hello from Container 1</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+  nginx2:
+    image: nginx:latest
+    container_name: nginx2
+    ports:
+      - "8082:80"
+    volumes:
+      - shared-data:/usr/share/nginx/html
+    command: /bin/sh -c "echo '<h1>Hello from Container 2</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+  nginx3:
+    image: nginx:latest
+    container_name: nginx3
+    ports:
+      - "8083:80"
+    volumes:
+      - shared-data:/usr/share/nginx/html
+    command: /bin/sh -c "echo '<h1>Hello from Container 3</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+
+volumes:
+  shared-data:

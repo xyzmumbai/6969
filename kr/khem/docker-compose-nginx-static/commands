@@ -1,0 +1,7 @@
+lubu@lubu-virtualbox:~/khem$ mkdir docker-compose-nginx-static
+lubu@lubu-virtualbox:~/khem$ cd docker-compose-nginx-static/
+lubu@lubu-virtualbox:~/khem/docker-compose-nginx-static$ mkdir website
+lubu@lubu-virtualbox:~/khem/docker-compose-nginx-static$ vim website/index.html
+lubu@lubu-virtualbox:~/khem/docker-compose-nginx-static$ vim docker-compose.yml
+lubu@lubu-virtualbox:~/khem/docker-compose-nginx-static$ docker compose up -d
+
